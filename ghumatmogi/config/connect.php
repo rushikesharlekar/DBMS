@@ -1,5 +1,5 @@
 <?php
 
-$connect = mysqli_connect('localhost','root','','ghumat_mogi');
+$connect = mysqli_connect("localhost","root","","ghumatmogi");
 
 ?>

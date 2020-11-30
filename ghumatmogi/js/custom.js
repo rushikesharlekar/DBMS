@@ -124,7 +124,21 @@ $(document).ready(function(){
             url:'web_services/register.php',
             data: $("#reg_form").serialize(),
             success:function(result){
-                alert(result);
+                // alert(result);
+                if(result.status=='fail'){
+                    $("#emailError").html("Email already exist. Please try another email.");
+                    $("#emailError").css('color','red');
+                    $("#emailError").css('font-size','0.7rem');
+                }
+                else if(result.status=='failure'){
+                    $("$emailError").html("Oops something went wrong. Please contact the admin. Sorry for the inconvinience");
+                }
+                else if(result.status=='success'){
+                    $("#reg_msg").html("Registration Successfull. Try logging in.");
+                    $("#reg_snipper").hide();
+                    $("#reg_button").show();
+                    
+                }
             }
         })
     

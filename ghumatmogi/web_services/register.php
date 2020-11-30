@@ -1,27 +1,63 @@
 <?php
 
+header('Content-type: application/json');
+
 require_once '../config/connect.php';
 
-$userFirstName = $_POST['userFirstName'];
-$userLastName = $_POST['userLastName'];
-$userGender = $_POST['userGender'];
+$firstName = $_POST['userFirstName'];
+$lastName = $_POST['userLastName'];
+$gender = $_POST['userGender'];
 $ifClub = $_POST['ifClub'];
-$userClub = $_POST['userClub'];
-$userEmail = $_POST['userEmail'];
-$userPassword = $_POST['userPassword'];
+$club = $_POST['userClub'];
+$email = $_POST['userEmail'];
+$password = $_POST['userPassword'];
 
-// echo $ifClub;
+// echo $email;
 
-$id = 1;
+if($ifClub == 'no'){
+    $sql_verify = mysqli_query($connect,"select email from puser where email='$email'");
+    if(mysqli_num_rows($sql_verify) > 0){
+        // echo "fail";
+        $response_array['status']='fail';
+    }
+    else{
+        $sql_insert = mysqli_query($connect,"insert into puser values ('','$firstName','$lastName','$email','$password')");
+        if($sql_insert){
+            // echo "inserted";
+            $response_array['status']='success';
+        }
+        else{
+            // echo "failure";
+            $response_array['status']='failure';
+    
+        }
+       
+    }
+}
+else{
+    $sql_verify = mysqli_query($connect,"select email from cuser where email='$email'");
+    if(mysqli_num_rows($sql_verify) > 0){
+        // echo "fail";
+        $response_array['status']='fail';
+    }
+    else{
+        $sql_insert = mysqli_query($connect,"insert into cuser values ('','$firstName','$lastName','$club','$ifClub','$email','$password')");
+        if($sql_insert){
+            // echo "inserted";
+            $response_array['status']='success';
+        }
+        else{
+            // echo "failure";
+            $response_array['status']='failure';
+    
+        }
+       
+    }
+}
 
-// $sql_verify = mysqli_query($connect,"select * from users where email='$userEmail'");
-// if(mysqli_num_rows($sql_verify)>0){
-//     $response_array['status']='fail';
-// }
-// else{
-    $sql_insert = myseli_query($connect,"insert into cusers(id,firstname,lastname,club,approved,email,password) values('$id','$userFisrtName',$userLatName','$userClub','not_approved','$userEmail','$userPassword')");
-    echo "inserted";
-// }
+
+
+echo json_encode($response_array);
 
 
 ?>

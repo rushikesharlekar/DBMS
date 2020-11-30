@@ -5,7 +5,7 @@
             
 
         </div>
-        <div class="col-sm-2 ch_position">
+        <div class="col-sm-3 ch_position">
         <!-- <i class="fas fa-headphones-alt fa-4x mb-3"></i> -->
         <h3 class="ch_bold">Login</h3>
         <form>
@@ -100,7 +100,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        
+        <p class="float-left" id="reg_msg"></p>
         <button type="button reg_button" class="btn btn-primary" id="reg_button">Register</button>
         <button class="btn reg_button" id="reg_snipper" type="button" disabled>
         <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" disable></span>
@@ -126,13 +126,13 @@
         <div class="container">
         <form>
             <div class="form-group">   
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <input type="email" class="form-control" id="userEmail" aria-describedby="emailHelp" placeholder="Enter email">
                 </div>
             <div class="form-group">
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="New Password">
+                <input type="password" class="form-control" id="password" placeholder="New Password">
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="New Password">
+                <input type="password" class="form-control" id="re_password" placeholder="New Password">
             </div>
         </form>
         </div>
