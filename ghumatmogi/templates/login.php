@@ -1,3 +1,83 @@
+<!-- login code -->
+<?php
+require_once 'config/connect.php';
+
+if(isset($_POST['login_button'])){
+
+  $userEmail = $_POST['email'];
+  $userPassword = $_POST['password'];
+
+  $sql_check1a = mysqli_query($connect,"select * from cuser where email='$userEmail'");
+  $sql_check1b = mysqli_query($connect,"select * from cuser where email='$userEmail' and password='$userPassword'");
+  $sql_check2a = mysqli_query($connect,"select * from puser where email='$userEmail'");
+  $sql_check2b = mysqli_query($connect,"select * from puser where email='$userEmail' and password='$userPassword'");
+  $sql_check3a = mysqli_query($connect,"select * from admin where email='$userEmail'");
+  $sql_check3b = mysqli_query($connect,"select * from admin where email='$userEmail' and password='$userPassword'");
+  if((mysqli_num_rows($sql_check1a)>0) || (mysqli_num_rows($sql_check2a)>0) || (mysqli_num_rows($sql_check3a)>0)){
+    if(mysqli_num_rows($sql_check1b)>0){
+      // successful
+      $msg='<div class="alert alert-danger mt-5" role="alert">
+      successful
+      </div>';
+
+    }
+    else if(mysqli_num_rows($sql_check2b)>0){
+      $msg='<div class="alert alert-danger mt-5" role="alert">
+      successful
+      </div>';
+    }
+    else if(mysqli_num_rows($sql_check3b)>0){
+      $msg='<div class="alert alert-danger mt-5" role="alert">
+      successful
+      </div>';
+    }
+    else{
+      $msg='<div class="alert alert-danger mt-5" role="alert">
+      Oops looks like we cannot identify this password. Try entering another password.
+      </div>';
+    }
+
+  }
+  else{
+    $msg='<div class="alert alert-danger mt-5" role="alert">
+    Oops looks like this email is not registered. Try registering first.
+    </div>';
+  }
+
+  // $sql_check2 = mysqli_query($connect,"select * from puser where emeail='$userEmail' and password='$userPassword'");
+  // if(mysqli_sum_rows($sql_check2)>0){
+
+  // }
+  // else{
+  //   $msg='<div class="alert alert-danger mt-5" role="alert">
+  //   Oops looks like this email is not registered.
+  //   </div>';
+  // }
+
+  // $sql_check3 = mysqli_query($connect,"select * from admin where emeail='$userEmail' and password='$userPassword'");
+  // if(mysqli_sum_rows($sql_check3)>0){
+
+  // }
+  // else{
+  //   $msg='<div class="alert alert-danger mt-5" role="alert">
+  //   Oops looks like this email is not registered.
+  //   </div>';
+  // }
+
+
+}
+// else{
+//   $msg='<div class="alert alert-danger mt-5" role="alert">
+//   error submitting
+//   </div>';
+// }
+
+
+
+?>
+
+
+
 <div class="container text-center">   
     <div class="row" >
     
@@ -8,18 +88,20 @@
         <div class="col-sm-3 ch_position">
         <!-- <i class="fas fa-headphones-alt fa-4x mb-3"></i> -->
         <h3 class="ch_bold">Login</h3>
-        <form>
+        <form action="" method="post">
             <div class="form-group">
                 
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp" placeholder="Enter email" name="email">
                 <small id="emailHelp" class="form-text text-muted"><i class="fas fa-lock"></i>We'll never share your email with anyone.</small>
+                <span id="loginEmailError" class="ch-error text-center"></span>
             </div>
             <div class="form-group">
                 
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <input type="password" class="form-control" id="loginPassword" placeholder="Password" name="password">
+                <span id="loginPasswordError" class="ch-error"></span>
             </div>
             
-            <button type="submit" class="btn login_button btn-block">Login</button>
+            <button type="submit" class="btn login_button btn-block" id="loginButton" name="login_button" >Login</button>
             
         </form>
 
@@ -27,7 +109,7 @@
         </br>
         <span class="float-center mt-1" ><a href="javascript:void(0)" data-toggle="modal" data-target="#passwordModal">Forgot password?</a></span>
         
-        
+        <?php echo @$msg; ?>
         </div>
         <div class="col-sm-5">
            

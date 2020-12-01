@@ -1,5 +1,52 @@
 $(document).ready(function(){
 
+    // login validations
+
+    $("#loginButton").on('click',function(){
+
+        var logemail = $("#loginEmail").val();
+        var loginemail = /^[a-z0-9.-_]+@+[a-z]+.+[a-z]$/;
+
+        var logpassword = $("#loginPassword").val();
+
+        if(logemail==""){
+            $("#loginEmailError").html('Email Required*');
+            $("#loginEmailError").css('color','red');
+            $("#loginEmailError").css('font-size','0.7rem');
+            return(false);
+        }
+
+        else if(!(logemail.match(loginemail))){
+            $("#loginEmailError").html('Enter Valid Email*');
+            $("#loginEmailError").css('color','red');
+            $("#loginEmailError").css('font-size','0.7rem');
+            return(false);
+        }
+        else{
+            $("#loginEmailError").html('');
+        }
+
+
+        if(logpassword==""){
+            $("#loginPasswordError").html('Password Required*');
+            $("#loginPasswordError").css('color','red');
+            $("#loginPasswordError").css('font-size','0.7rem');
+            return(false);
+        }
+        else{
+            $("#loginPasswordError").html('');
+        }
+
+
+
+    })
+
+
+
+
+
+    // registration validations
+
     $("#reg_snipper").hide();
     $("#selectclubdiv").hide();
     
@@ -143,7 +190,6 @@ $(document).ready(function(){
         })
     
     })
-    
     
     
     
