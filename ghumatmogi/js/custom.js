@@ -51,8 +51,8 @@ $(document).ready(function(){
     $("#selectclubdiv").hide();
     
     
-    $("#club").change(function(){
-        if($("#club").val()=="yes"){
+    $("#role").change(function(){
+        if($("#role").val()=="club"){
             $("#selectclubdiv").show();
         }
         else{
@@ -69,7 +69,7 @@ $(document).ready(function(){
         var lname = $("#inputLastName").val();
         var regname = /^[a-zA-Z]{3,20}$/;
 
-        var club = $("#club").val();
+        var role = $("#role").val();
         var selclub = $("#selectclub").val();
 
         
@@ -107,13 +107,16 @@ $(document).ready(function(){
             $("#lnameError").html('');
         }
 
-        if(club=="yes"){
+        if(role=="club"){
             $("#selectclubdiv").show();
             if(selclub==""){
                 $("#clubError").html('Select a Club*');
                 $("#clubError").css('color','red');
                 $("#clubError").css('font-size','0.7rem');
                 return(false);
+            }
+            else{
+                $("#clubError").html('');
             }
         }
         else{
@@ -171,20 +174,21 @@ $(document).ready(function(){
             url:'web_services/register.php',
             data: $("#reg_form").serialize(),
             success:function(result){
-                // alert(result);
+                alert(result);
                 if(result.status=='fail'){
+                    // alert(result.status);
                     $("#emailError").html("Email already exist. Please try another email.");
                     $("#emailError").css('color','red');
                     $("#emailError").css('font-size','0.7rem');
                 }
                 else if(result.status=='failure'){
+                    // alert(result.status);
                     $("$emailError").html("Oops something went wrong. Please contact the admin. Sorry for the inconvinience");
                 }
                 else if(result.status=='success'){
+                    // alert(result.status);
                     $("#reg_msg").html("Registration Successfull. Try logging in.");
-                    $("#reg_snipper").hide();
-                    $("#reg_button").show();
-                    
+                    $("#reg_snipper").hide();                    
                 }
             }
         })

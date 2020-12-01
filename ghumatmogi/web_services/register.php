@@ -7,21 +7,28 @@ require_once '../config/connect.php';
 $firstName = $_POST['userFirstName'];
 $lastName = $_POST['userLastName'];
 $gender = $_POST['userGender'];
-$ifClub = $_POST['ifClub'];
+$role = $_POST['userRole'];
 $club = $_POST['userClub'];
 $email = $_POST['userEmail'];
 $password = $_POST['userPassword'];
 
 // echo $email;
 
-if($ifClub == 'no'){
-    $sql_verify = mysqli_query($connect,"select email from puser where email='$email'");
+
+$sql_verify = mysqli_query($connect,"select email from user where email='$email'");
     if(mysqli_num_rows($sql_verify) > 0){
         // echo "fail";
         $response_array['status']='fail';
     }
     else{
-        $sql_insert = mysqli_query($connect,"insert into puser values ('','$firstName','$lastName','$email','$password')");
+        if($role == 'public'){
+            $club = 'NULL';
+            $approved = 'NULL';
+        }
+        else{
+            $approved = 'no';
+        }
+        $sql_insert = mysqli_query($connect,"insert into user values ('','$firstName','$lastName','$role','$club','$approved','$email','$password')");
         if($sql_insert){
             // echo "inserted";
             $response_array['status']='success';
@@ -33,27 +40,6 @@ if($ifClub == 'no'){
         }
        
     }
-}
-else{
-    $sql_verify = mysqli_query($connect,"select email from cuser where email='$email'");
-    if(mysqli_num_rows($sql_verify) > 0){
-        // echo "fail";
-        $response_array['status']='fail';
-    }
-    else{
-        $sql_insert = mysqli_query($connect,"insert into cuser values ('','$firstName','$lastName','$club','$ifClub','$email','$password')");
-        if($sql_insert){
-            // echo "inserted";
-            $response_array['status']='success';
-        }
-        else{
-            // echo "failure";
-            $response_array['status']='failure';
-    
-        }
-       
-    }
-}
 
 
 

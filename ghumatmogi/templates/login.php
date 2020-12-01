@@ -7,29 +7,31 @@ if(isset($_POST['login_button'])){
   $userEmail = $_POST['email'];
   $userPassword = $_POST['password'];
 
-  $sql_check1a = mysqli_query($connect,"select * from cuser where email='$userEmail'");
-  $sql_check1b = mysqli_query($connect,"select * from cuser where email='$userEmail' and password='$userPassword'");
-  $sql_check2a = mysqli_query($connect,"select * from puser where email='$userEmail'");
-  $sql_check2b = mysqli_query($connect,"select * from puser where email='$userEmail' and password='$userPassword'");
-  $sql_check3a = mysqli_query($connect,"select * from admin where email='$userEmail'");
-  $sql_check3b = mysqli_query($connect,"select * from admin where email='$userEmail' and password='$userPassword'");
-  if((mysqli_num_rows($sql_check1a)>0) || (mysqli_num_rows($sql_check2a)>0) || (mysqli_num_rows($sql_check3a)>0)){
+  $sql_check1a = mysqli_query($connect,"select * from user where email='$userEmail'");
+  $sql_check1b = mysqli_query($connect,"select * from user where email='$userEmail' and password='$userPassword'");
+ 
+  if((mysqli_num_rows($sql_check1a)>0)){
     if(mysqli_num_rows($sql_check1b)>0){
       // successful
-      $msg='<div class="alert alert-danger mt-5" role="alert">
-      successful
-      </div>';
+      session_start();
+      $user_data = mysqli_fetch_assoc($sql_check1b);
+      if($user_data['role']=='admin'){
 
-    }
-    else if(mysqli_num_rows($sql_check2b)>0){
-      $msg='<div class="alert alert-danger mt-5" role="alert">
-      successful
-      </div>';
-    }
-    else if(mysqli_num_rows($sql_check3b)>0){
-      $msg='<div class="alert alert-danger mt-5" role="alert">
-      successful
-      </div>';
+        $_SESSION['email']=$user_data['email'];
+
+        setcookie("login_msg",$_SESSION['email'],time()*(10));
+        header('location:admin/index.php');
+
+      }
+      else if($user_data['role']=='club'){
+
+        header('location:aartiGallery/index.php');
+      }
+      else{
+        // public
+        header('location:aartiGallery/index.php');
+      }
+      
     }
     else{
       $msg='<div class="alert alert-danger mt-5" role="alert">
@@ -40,7 +42,7 @@ if(isset($_POST['login_button'])){
   }
   else{
     $msg='<div class="alert alert-danger mt-5" role="alert">
-    Oops looks like this email is not registered. Try registering first.
+    <i class="fas fa-times-circle"></i> Oops looks like this email is not registered. Try registering first.
     </div>';
   }
 
@@ -157,9 +159,9 @@ if(isset($_POST['login_button'])){
                 </div>
             <div class="form-check mb-2">
             <label for="selectclub">Select User Type :</label>
-                <select class="form-control" id="club" name="ifClub">
-                        <option value="no" selected>Public</option>
-                        <option value="yes">Club Member</option>
+                <select class="form-control" id="role" name="userRole">
+                        <option value="public" selected>Public</option>
+                        <option value="club">Club Member</option>
                     </select>
                 </div>
             <div class="form-group" id="selectclubdiv">
