@@ -10,6 +10,8 @@ a{
     text-decoration: none;
 }
 
+/* login register */
+
 .login_button{
     background: linear-gradient(to right, #ff0101, #ff6702) !important;
     color: white;
@@ -42,8 +44,3 @@ a{
     font-weight: 700;    
 }
 
-/* registration */
-
-/* .ch_error{
-    font-size: 0.7rem !important;
-} */

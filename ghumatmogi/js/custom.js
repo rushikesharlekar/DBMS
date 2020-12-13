@@ -161,8 +161,9 @@ $(document).ready(function(){
         //     return(false);
         // }
         else{
+            
             $("#passwordError").html('');
-            $("#reg_button").hide();
+            $("#reg_button").hide ();
             $("#reg_snipper").show();
 
         }
@@ -180,6 +181,8 @@ $(document).ready(function(){
                     $("#emailError").html("Email already exist. Please try another email.");
                     $("#emailError").css('color','red');
                     $("#emailError").css('font-size','0.7rem');
+                    $("#reg_button").show();
+                    $("#reg_snipper").hide();
                 }
                 else if(result.status=='failure'){
                     // alert(result.status);
@@ -188,7 +191,9 @@ $(document).ready(function(){
                 else if(result.status=='success'){
                     // alert(result.status);
                     $("#reg_msg").html("Registration Successfull. Try logging in.");
-                    $("#reg_snipper").hide();                    
+                    $("#reg_snipper").hide(); 
+                    // $("#login_snipper").hide();
+
                 }
             }
         })

@@ -11,6 +11,7 @@ $role = $_POST['userRole'];
 $club = $_POST['userClub'];
 $email = $_POST['userEmail'];
 $password = $_POST['userPassword'];
+// $club = 'NULL';
 
 // echo $email;
 
@@ -26,6 +27,9 @@ $sql_verify = mysqli_query($connect,"select email from user where email='$email'
             $approved = 'NULL';
         }
         else{
+            // $sql_club_id = mysqli_query($connect,"select * from club where club_name='$clubName'");
+            // $club_data = mysqli_fetch_assoc($sql_club_id);
+            // $club = $club_data['club_id'];
             $approved = 'no';
         }
         $sql_insert = mysqli_query($connect,"insert into user values ('','$firstName','$lastName','$role','$club','$approved','$email','$password')");

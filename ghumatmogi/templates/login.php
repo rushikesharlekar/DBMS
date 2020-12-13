@@ -2,6 +2,52 @@
 <?php
 require_once 'config/connect.php';
 
+// $clubList='<option value="public" selected>Public</option>
+// <option value="club">Club Member</option>';
+
+$club_result = mysqli_query($connect,"select * from club");
+// if(mysqli_num_rows($sql_sel_query)>0){
+//   foreach($products as $ap)
+//   {
+//     $name = $ap['club_name'];
+//     $id = $ap['id'];
+//   }
+// }
+// else{
+  
+// }
+
+// $result_array = array();
+
+// while($r=mysqli_fetch_assoc($sql_sel_query)){
+//     if (!isset($result_array[$r['club_name']])){
+//         $result_array[$r['club_name']] = array();
+//     }
+//     $result_array[$r['club_name']][] = $r['club_name'];
+// }
+
+// $html = "";
+// foreach($result_array as $key => $value){
+
+//   $clubList='<option value=\"$service\" selected>$service</option>';
+
+
+
+
+//     $clubList = "
+//     <div class=\"list\">
+//         <h3 class=\"secondary\">$key</h3>
+//             <ul>";
+//         foreach($result_array[$key] as $service){
+//             $clubList = "<li>$service</li>\n"; 
+//         }
+//     $clubList = "</ul></div>";
+// }
+
+// echo $html;
+
+// after login
+
 if(isset($_POST['login_button'])){
 
   $userEmail = $_POST['email'];
@@ -14,22 +60,37 @@ if(isset($_POST['login_button'])){
     if(mysqli_num_rows($sql_check1b)>0){
       // successful
       session_start();
+
       $user_data = mysqli_fetch_assoc($sql_check1b);
-      if($user_data['role']=='admin'){
+
+      if(isset($_SESSION['email']) || isset($_SESSION['firstname']) || isset($_SESSION['lastname'])){
+        unset($_SESSION['email']);
+        unset($_SESSION['firstname']);
+        unset($_SESSION['lastname']);
 
         $_SESSION['email']=$user_data['email'];
+        $_SESSION['firstname']=$user_data['firstname'];
+        $_SESSION['lastname']=$user_data['lastname'];
 
-        setcookie("login_msg",$_SESSION['email'],time()*(10));
+        setcookie("login_msg",$_SESSION['email'],time()+(10));
+        setcookie("login_msg",$_SESSION['firstname'],time()+(10));
+        setcookie("login_msg",$_SESSION['lastname'],time()+(10));
+
+      }
+      
+      if($user_data['role']=='admin'){
+
         header('location:admin/index.php');
 
       }
       else if($user_data['role']=='club'){
 
-        header('location:aartiGallery/index.php');
+        header('location:club/index.php');
       }
       else{
         // public
-        header('location:aartiGallery/index.php');
+     
+        header('location:public/index.php');
       }
       
     }
@@ -167,9 +228,12 @@ if(isset($_POST['login_button'])){
             <div class="form-group" id="selectclubdiv">
                 <label for="selectclub">Select Your Club :</label>
                 <select class="form-control" id="selectclub" name="userClub">
-                    <option value="0" selected>No</option>
-                    <option value="1">Yes</option>
-                <span id="clubError"></span>
+                  <?php
+                   while($row = mysqli_fetch_array($club_result)):;
+                  ?>
+                  <option value="<?php echo $row[0]; ?>"> <?php echo $row[1]; ?> </option>
+                  <?php endwhile; ?>
+                <span id="clubError"><?php echo @$message ?></span>
                 </select>
             </div>
             <div class="form-group">   
