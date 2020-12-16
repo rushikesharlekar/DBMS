@@ -63,6 +63,7 @@ $(document).ready(function(){
     
 
     $("#reg_button").on('click',function(){
+        // alert('hhello');
 
         // validations
         var fname = $("#inputFirstName").val();
@@ -203,4 +204,4 @@ $(document).ready(function(){
     
     
     
-    })
+})

@@ -3,53 +3,67 @@
 <?php include_once '../templates/welcome.php'?>
 
 <!-- navigation -->
+<?php include_once 'templates/menu.php' ?>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Ghumat Mogi</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<!-- jumbotron -->
+<?php include_once '../templates/welcom.php'?>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Users</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Data
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Tracks</a>
-          <a class="dropdown-item" href="#">Clubs</a>
-          <a class="dropdown-item" href="#">Album</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Artists</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
-
-<div class="container mt-5">
-  <div class="jumbotron">
-    <h1 class="display-4">Welcome to Ghumat Aarti Library!</h1>
-    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-    <hr class="my-4">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-  </div>
+<div class="container mt-5 mr-5 ml-5" >
+    <div clas="container-fluid " id="displayTrack" name="displayTrack">
+        <?php include_once 'add-track.php' ?>
+    </div>
+    <div clas="container-fluid " id="displayTrack" name="displayTrack">
+        <?php include_once 'add-club.php' ?>
+    </div>
+    <div clas="container-fluid " id="displayTrack" name="displayTrack">
+        <?php include_once 'add-artist.php' ?>
+    </div>
 </div>
 
+<!-- homepage content -->
+<!-- <div class="container">
+  <div class="row mt-5">
+    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Albums</a></li>
+        <li class="breadcrumb-item active" aria-current="page"></li>
+      </ol>
+    </nav>
+  </div>
+  <div class="row mt-5">
+    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Clubs</a></li>
+        <li class="breadcrumb-item active" aria-current="page"></li>
+      </ol>
+    </nav>
+  </div>
+  <div class="row mt-5">
+    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Tracks</a></li>
+        <li class="breadcrumb-item active" aria-current="page"></li>
+      </ol>
+    </nav>
+  </div>
+</div> -->
 
-<?php include_once '../templates/footer.php'?>
+<!-- album display -->
+<!-- <div class="container">
+  <div class="row">
+    <div class="col sm-3 mb-3">
+      <div class="card">
+        <img src="images/download.jpg" alt="image">
+        <div class="card-image-overlay text-white d-flex flex-column justify-content-center">
+          <h3>album name</h3>
+          <h6>club name</h6>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div> -->
+
+<?php include_once 'templates/footer.php'?>
