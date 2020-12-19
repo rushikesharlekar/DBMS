@@ -23,9 +23,9 @@ $artist = $_POST['inputcomposeroption'];
 // $club_data = mysqli_fetch_assoc($get_club);
 // $composer_data = mysqli_fetch_assoc($get_composer);
 
-$club_id = $club_data['club_id'];
-$art_id = $composer_data['art_id'];
-$response_array['status']='before';
+// $club_id = $club_data['club_id'];
+// $art_id = $composer_data['art_id'];
+// $response_array['status']='before';
 $insert_track = mysqli_query($connect,"insert into track values ('','$trk_name','$artist','NULL','$club')");
 
 if($insert_track){

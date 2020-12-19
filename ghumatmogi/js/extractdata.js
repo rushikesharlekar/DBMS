@@ -1,7 +1,5 @@
 $(document).ready(function(e){
 
-
-
     $("#addTrackBtn").on('click',function(){
         // alert(e);
         
@@ -9,7 +7,7 @@ $(document).ready(function(e){
         var clubname = $("#inputcluboption").val();
         var composerkname = $("#inputcomposeroption").val();
         var trackalbum = "NULL";
-
+    
         if(trackname==""){
             $("#tnameError").html('Track name Required*');
             $("#tnameError").css('color','red');
@@ -19,7 +17,7 @@ $(document).ready(function(e){
         else{
             $("#tnameError").html('');
         }
-
+    
         $.ajax({
             type:'POST',
             url:'../web_services/addtrack.php',
@@ -41,14 +39,14 @@ $(document).ready(function(e){
         })
         
     })
-
-
+    
+    
     $("#addClubBtn").on('click',function(){
         // alert(e);
         
         var clubname = $("#inputClubName").val();
         var clubaddress = $("#inputClubAddress").val();
-
+    
         if(clubname==""){
             $("#cnameError").html('Track name Required*');
             $("#cnameError").css('color','red');
@@ -58,7 +56,7 @@ $(document).ready(function(e){
         else{
             $("#cnameError").html('');
         }
-
+    
         
         $.ajax({
             type: 'POST',
@@ -88,7 +86,7 @@ $(document).ready(function(e){
                     $("#cnameError").html("");
                     $("#inputTrackName").val().html('');
                     $("#inputcluboption").val().html('');
-
+    
                     $("#track_add_msg").html("Club Added. Enter new club details.");
                     // location.reload();
                     
@@ -97,7 +95,7 @@ $(document).ready(function(e){
         })
         
     })
-
+    
     $("#addArtistBtn").on('click',function(){
         // alert(e);
         
@@ -106,7 +104,7 @@ $(document).ready(function(e){
         var artistaddresss = $("#inputArtistAddress").val();
         var artistclub = $("#inputcluboption").val();
         var artisrole = $("#selectrole1").val();
-
+    
         // if(clubname==""){
         //     $("#cnameError").html('Track name Required*');
         //     $("#cnameError").css('color','red');
@@ -116,7 +114,7 @@ $(document).ready(function(e){
         // else{
         //     $("#cnameError").html('');
         // }
-
+    
         
         $.ajax({
             type: 'POST',
@@ -146,7 +144,7 @@ $(document).ready(function(e){
                     // $("#cnameError").html("");
                     // $("#inputTrackName").val().html('');
                     // $("#inputcluboption").val().html('');
-
+    
                     // $("#track_add_msg").html("Club Added. Enter new club details.");
                     $("#addartistmodal").hide();
                     
@@ -155,5 +153,7 @@ $(document).ready(function(e){
         })
         
     })
+
+    
 
 })

@@ -3,7 +3,8 @@
     <script src="../js/jquery.js"></script>
     <script src="../js/proper.js"></script>
     <script src="../js/bootstrap.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="../js/sweetalert.js"></script>
     <script src="js/custom.js"></script>
+    <script src="../js/extractdata.js"></script>
   </body>
 </html>

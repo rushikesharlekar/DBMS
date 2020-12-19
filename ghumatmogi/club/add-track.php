@@ -1,9 +1,10 @@
-<?php include_once '../web_services/checkadminlogin.php'?>
+<?php include_once '../web_services/checkclublogin.php'?>
 
 <?php
  require_once '../config/connect.php';
 
- $club_result = mysqli_query($connect,"select * from club");
+ $email = $_SESSION['email'];
+ $club_result = mysqli_query($connect,"select * from club where club_id in (select club from user where email = '$email' and role = 'club')");
 
  $composer_result = mysqli_query($connect,"select * from artist where art_id in (select art_id from role where role.art_id = artist.art_id and role_type = 'composer')");
 
@@ -41,7 +42,6 @@
         <div class="form-group" id="selectclubdiv">
             <label for="selectclub">Club :</label>
             <select class="form-control" id="inputcluboption" name="inputcluboption">
-              <option value="" selected disabled></option>
               <?php
               while($row = mysqli_fetch_array($club_result)):;
               ?>

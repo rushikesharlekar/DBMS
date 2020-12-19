@@ -5,5 +5,6 @@
     <script src="../js/bootstrap.js"></script>
     <script src="../js/sweetalert.js"></script>
     <script src="js/custom.js"></script>
+    <script src="../js/custom.js"></script>
   </body>
 </html>

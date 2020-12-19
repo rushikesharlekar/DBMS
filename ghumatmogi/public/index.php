@@ -1,17 +1,12 @@
+<?php include_once '../web_services/checkpubliclogin.php' ?>
+
 <?php include_once 'templates/header.php'?>
-
-
-
-<?php include_once '../../templates/welcome.php'?>
-
-
 
 <!-- navigation -->
 <?php include_once 'templates/menu.php' ?>
 
 <!-- jumbotron -->
-<?php include_once '../templates/welcom.php'?>
-
+<?php include_once '../templates/welcome.php'?>
 
 <div class="container">
   <div class="row mt-5">

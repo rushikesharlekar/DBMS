@@ -1,19 +1,9 @@
-<?php
-
-session_start();
-
-if(isset($_COOKIE['login_msg'])){
-    // echo "welcome ".$_SESSION['email']." ";
-
-    echo '<script type="text/javascript">
-    setTimeout(function(){
-        Swal.fire("Hello '.$_SESSION['firstname'].' '.$_SESSION['lastname'].'","Welcome to Ghumat Mogi","success");
-    },100);
-    </script>';
-
-}
-else{
-    echo"";
-}
-
-?>
+<div class="container mt-5">
+  <div class="jumbotron">
+    <h1 class="display-4">Welcome to Ghumat Aarti Library!</h1>
+    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+    <hr class="my-4">
+    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  </div>
+</div>

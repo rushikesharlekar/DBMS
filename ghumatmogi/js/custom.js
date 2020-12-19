@@ -176,7 +176,7 @@ $(document).ready(function(){
             url:'web_services/register.php',
             data: $("#reg_form").serialize(),
             success:function(result){
-                alert(result);
+                alert(result.status);
                 if(result.status=='fail'){
                     // alert(result.status);
                     $("#emailError").html("Email already exist. Please try another email.");
@@ -196,6 +196,7 @@ $(document).ready(function(){
                     // $("#login_snipper").hide();
 
                 }
+                // window.location.href="";
             }
         })
     

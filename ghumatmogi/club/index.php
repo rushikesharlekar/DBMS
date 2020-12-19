@@ -1,81 +1,21 @@
+<?php include_once '../web_services/checkclublogin.php' ?>
+
 <?php include_once 'templates/header.php'?>
 
-<?php include_once 'templates/welcome.php'?>
-
-
-
 <!-- navigation -->
+<?php include_once 'templates/menu.php' ?>
 
-<nav class="navbar navbar-expand-lg navbar-light ">
-  <div class="container">
-    <a class="navbar-brand" href="#">Ghumat Mogi</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<!-- jumbotron -->
+<?php include_once '../templates/welcome.php'?>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Tracks <span class="sr-only">(current)</span></a>
-        </li>
-
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Audio CD <span class="sr-only">(current)</span></a>
-        </li>
-
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Live Performances <span class="sr-only">(current)</span></a>
-        </li>
-        
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Others
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Clubs</a>
-            <a class="dropdown-item" href="#">Artists</a>
-            <!-- <div class="dropdown-divider"></div> -->
-            <a class="dropdown-item" href="#">Composers</a>
-          </div>
-        </li>
-      </ul>
-      <!-- ================ -->
-      <ul class="navbar-nav mr-auto ml-auto">
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-secondary my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
-        </form>
-      </ul>
-      <!-- ===================== -->
-      <ul>        
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle user_dropdown" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-user"></i>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Clubs</a>
-            <a class="dropdown-item" href="#">Artists</a>
-            <!-- <div class="dropdown-divider"></div> -->
-            <a class="dropdown-item" href="#">Composers</a>
-          </div>
-        </li>
-      </ul>
+<div class="container mt-5 mr-5 ml-5" >
+    <div clas="container-fluid " >
+        <?php include_once 'add-track.php' ?>
     </div>
-  </div>
-</nav>
-
-<!-- jumbotron  -->
-
-<div class="container mt-5">
-  <div class="jumbotron">
-    <h1 class="display-4">Welcome to Ghumat Aarti Library!</h1>
-    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-    <hr class="my-4">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-  </div>
+    <div clas="container-fluid " >
+        <?php include_once 'add-artist.php' ?>
+    </div>
 </div>
-
 
 <div class="container">
   <div class="row mt-5">
