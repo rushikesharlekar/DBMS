@@ -61,6 +61,7 @@ $art_address = mysqli_query($connect,"select distinct art_address from artist");
             <div class="row-mt-1">
                 <h6>Address: <?php echo$row['art_address']; ?></h6>
             </div>
+            <div class="dropdown-divider"></div>
             
         </div>
         <?php endwhile; ?>

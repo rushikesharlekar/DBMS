@@ -42,7 +42,7 @@
       </div>
       <div class="modal-footer">
         <p class="float-left" id="club_add_msg"></p>
-        <button type="submit " class="btn custom_button btn-block" id="addClubBtn" name="addTrackBtn">Add</button>
+        <button type="submit " class="btn custom_button btn-block" id="addClubBtn" name="addTrackBtn"><i class="fas fa-plus-circle"></i>Add</button>
       </div>
     </div>
   </div>

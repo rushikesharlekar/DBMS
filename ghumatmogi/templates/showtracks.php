@@ -59,6 +59,7 @@ $composer_result = mysqli_query($connect,"select * from artist where art_id in (
             <div class="row-mt-1">
                 <h6>Composer: <?php echo$composer_data['art_firstname']." ".$composer_data['art_lastname']; ?></h6>
             </div>
+            <div class="dropdown-divider"></div>
             
         </div>
         <?php endwhile; ?>

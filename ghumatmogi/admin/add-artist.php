@@ -92,7 +92,7 @@
       </div>
       <div class="modal-footer">
         <p class="float-left" id="track_add_msg"></p>
-        <button type="submit " class="btn custom_button btn-block" id="addArtistBtn" name="addTrackBtn">Add</button>
+        <button type="submit " class="btn custom_button btn-block" id="addArtistBtn" name="addTrackBtn"><i class="fas fa-plus-circle"></i>Add</button>
       </div>
     </div>
   </div>

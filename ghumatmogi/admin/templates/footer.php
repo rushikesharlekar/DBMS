@@ -6,5 +6,6 @@
     <script src="../js/sweetalert.js"></script>
     <script src="js/custom.js"></script>
     <script src="../js/custom.js"></script>
+    <script src="../js/extractdata.js"></script>
   </body>
 </html>

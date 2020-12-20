@@ -35,6 +35,7 @@ $club_result = mysqli_query($connect,"select * from club");
             <div class="row-mt-1">
                 <h6><?php echo$row['club_address']; ?></h6>
             </div>
+            <div class="dropdown-divider"></div>
             
         </div>
         <?php endwhile; ?>

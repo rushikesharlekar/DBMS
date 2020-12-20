@@ -18,19 +18,20 @@ $composer_result = mysqli_query($connect,"select * from artist where art_id in (
     <div class="col-md-3 ">
     <div class="form-select" id="tracksort">
     <label for="club_sort">Composer</label>
-    <select class="form-control container-fluid" id="selectcomposer" name="userComposer">
+    <select class="form-control container-fluid" id="selectclubcomposer" name="userComposer">
       <option value="null" selected >All</option>
         <?php
         while($row = mysqli_fetch_array($composer_result)):;
         ?>
-        <option value="<?php echo $row[1]; ?>"> <?php echo $row[1]." ".$row[2]; ?> </option>
+        <option value="<?php echo $row[0]; ?>"> <?php echo $row[1]." ".$row[2]; ?> </option>
         <?php endwhile; ?>
     </select>
+    <input type="text" value="<?php echo $clubname; ?>" id="selectclubb" hidden="true">
     <!-- <button type="submit" id="sorttrackbutton" name="sorttrack">Apply</button> -->
     </div>
     </div>
     <div class="col-sm" >
-      <div class="container" id="displaytracks">
+      <div class="container" id="displayclubtracks">
         <?php
             while($row = mysqli_fetch_array($track_sql)):;
         ?>

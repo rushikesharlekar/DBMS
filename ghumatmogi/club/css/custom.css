@@ -1,10 +1,31 @@
-a{
-    color: black;
-    text-decoration: none;
-}
-
 ul{
     list-style-type: none;
     margin: 0;
     padding: 0;
+}
+
+.custom_button{
+    background: linear-gradient(to right, #0178ff, #02ff4e) !important;
+    color: rgb(0, 0, 0);
+    border: none !important;
+}
+
+.custom_button:hover{
+    background: linear-gradient(to right, #0105ff, #41cc00) !important;
+    border: none !important;
+    color: white;
+}
+
+.homepagecontainer{
+    background-color: violet;
+}
+
+body{
+    font-family: 'Nunito', sans-serif !important;
+    background-color: antiquewhite;
+}
+
+a{
+    color: black;
+    text-decoration: none;
 }

@@ -21,3 +21,7 @@ ul{
     color: white;
 }
 
+body{
+    font-family: 'Nunito', sans-serif !important;
+    background-color: antiquewhite;
+}
